@@ -6,3 +6,11 @@ body {
 a {
   color: #00B7FF;
 }
+
+.formulario{
+	width:600px;
+}
+.formulario .rotulo{
+	text-align: right;
+	padding-right: 10px;
+}

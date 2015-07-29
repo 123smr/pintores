@@ -41,11 +41,10 @@
               Logado como <a href="#" class="navbar-link">Samir</a>
             </p>
             <ul class="nav">
-              <li class="active"><a href="/">Home</a></li>
+              <li><a href="/">Home</a></li>
               <li><a href="/quem-somos">Quem somos</a></li>
-              <li><a href="/contatos">Contatos</a></li>
-              <li><a href="/orcamento">Orçamento</a></li>
-              
+              <li><a href="/contatos">Contatos</a></li>    
+              <li class="active"><a href="/orcamento">Orçamento</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -54,17 +53,40 @@
 
     <div class="container-fluid">
       <div class="row-fluid">
-        <div class="hero-unit">
-            <h1>Hello, world!</h1>
-            <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-            <p><a href="#" class="btn btn-primary btn-large">Learn more »</a></p>
-          </div>
+        <form action="/orcamento/cadastrar" method="post" onSubmit="return validarFormulario()">
+
+          <table class="formulario">
+            <tr>
+              <td class="rotulo">Nome</td>
+              <td><input type='text' id="name" name='nome'/></td>
+            </tr>
+            <tr>
+              <td class="rotulo">Telefone</td> 
+              <td><input type='text'  id="phone" name='telefone'/></td>
+            </tr>
+            <tr>
+              <td class="rotulo">Endereço</td>
+              <td><input type='text' id="address" name='endereco'/></td>
+            </tr>
+            <tr>
+              <td class="rotulo">Email</td>
+              <td><input type='text' id="email" name='email'/></td>
+            </tr>
+            <tr>
+              <td class="rotulo">Descricao do orçamento</td>
+              <td><textarea rows="10" cals="50" id="description" name="descricao"></textarea></td>
+            </tr>
+          </table>
+          <input type='submit' name='OK' value='enviar'/>
+
+        </form>
+
       </div><!--/row-->
 
       <hr>
 
       <footer>
-        <p id='copyright' class='copyright2'>&copy; Company 2013</p>
+        <p>&copy; Company 2013</p>
       </footer>
 
     </div><!--/.fluid-container-->
@@ -72,19 +94,8 @@
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="/bootstrap/js/jquery.js"></script>
-    <script src="/bootstrap/js/bootstrap-transition.js"></script>
-    <script src="/bootstrap/js/bootstrap-alert.js"></script>
-    <script src="/bootstrap/js/bootstrap-modal.js"></script>
-    <script src="/bootstrap/js/bootstrap-dropdown.js"></script>
-    <script src="/bootstrap/js/bootstrap-scrollspy.js"></script>
-    <script src="/bootstrap/js/bootstrap-tab.js"></script>
-    <script src="/bootstrap/js/bootstrap-tooltip.js"></script>
-    <script src="/bootstrap/js/bootstrap-popover.js"></script>
-    <script src="/bootstrap/js/bootstrap-button.js"></script>
-    <script src="/bootstrap/js/bootstrap-collapse.js"></script>
-    <script src="/bootstrap/js/bootstrap-carousel.js"></script>
-    <script src="/bootstrap/js/bootstrap-typeahead.js"></script>
+    <script src="/javascripts/jquery-1.11.3.min.js"></script>
+    <script src="/javascripts/validacao.js"></script>
 
   </body>
 </html>
