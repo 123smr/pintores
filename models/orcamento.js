@@ -11,15 +11,50 @@ Orcamento=function(nome,telefone,endereco,email,orcamento){
 	this.incluir=function(callback){
 		Orcamento.incluir(this,callback)
 	}
+	this.alterar=function(callback){
+		Orcamento.alterar(this,callback)
+	}
+	this.get=function(callback){
+		Orcamento.buscaPorId(this.id,function(rows,err){
+			if(!err){
+				var row=rows[0];
+				this.id=row.id;
+				this.nome=row.nome;
+				this.telefone=row.telefone;
+				this.endereco=row.endereco;
+				this.email=row.email;
+				this.orcamento=row.orcamento;
+				callback.call();
+			}
+
+
+
+		})
+	}
+
 }
 //metodos estaticos//
 Orcamento.incluir=function(orcamento,callback){
-	var query="insert into orcamentos(nome,telefone,endereco,email,orcamento)values("+orcamento.nome+","+orcamento.telefone+","+orcamento.endereco+","+orcamento.email+","+orcamento.orcamento+")";
-	console.log(".........................");
-	console.log(query);
-	console.log(".........................");
-
-
+	var query="insert into orcamentos(nome,telefone,endereco,email,orcamento)values('"+orcamento.nome+"','"+orcamento.telefone+"','"+orcamento.endereco+"','"+orcamento.email+"','"+orcamento.orcamento+"')";
 	db.cnn.exec(query,callback);
 }
+Orcamento.listar=function(callback){
+	var query="select * from orcamentos";
+	db.cnn.exec(query,callback);
+}
+Orcamento.excluirPorId=function(id,callback){
+	var query="delete from orcamentos where id="+id;
+	db.cnn.exec(query,callback);
+}
+Orcamento.alterar=function(orcamento,callback){
+	var query="update orcamentos set nome='"+orcamento.nome+"',telefone='"+orcamento.telefone+"',endereco='"+orcamento.endereco+"',email='"+orcamento.email+"',orcamento='"+orcamento.orcamento+"' where id="+orcamento.id;
+	db.cnn.exec(query,callback);
+}
+Orcamento.buscaPorId=function(id,callback){
+	var query="select * from orcamentos where id="+id;
+	db.cnn.exec(query,callback);
+}
+
+
+
 module.exports=Orcamento;

@@ -18,9 +18,30 @@ router.post('/cadastrar', function(req, res, next) {
 			res.send("erro ao atualizar :"+err.message,500);
 		}
 		else{
-			res.redirect("/");
+			res.redirect("/orcamento/listar");
 		}
 
+	});
+
+});
+router.get('/listar', function(req,res,next){
+	Orcamento.listar(function(rows,err){
+		if(err){
+			res.send("erro ao buscar :"+err.message,500);
+		}
+		else{
+			res.render('listas_de_orcamentos',{registros:rows});
+		}
+	})
+});
+router.get('/excluir',function(req,res,next){
+	Orcamento.excluirPorId(parseInt(req.param('id')),function(rows,err){
+		if(err){
+			res.send("erro ao excluir :"+err.message,500);
+		}
+		else{
+			res.redirect("/orcamento/listar");
+		}
 	});
 });
 
