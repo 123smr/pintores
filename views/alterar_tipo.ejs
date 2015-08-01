@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title><%= title %></title>
+    <title>alterar tipo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -43,11 +43,11 @@
             <ul class="nav">
               <li><a href="/">Home</a></li>
               <li><a href="/quem-somos">Quem somos</a></li>
-              <li class="active"><a href="/contatos">Contatos</a></li>
+              <li><a href="/contatos">Contatos</a></li>    
               <li><a href="/orcamento">Orçamento</a></li>
               <li><a href="/orcamento/listar">Lista de Orcamentos</a></li>
               <li><a href="/tipos">Tipos</a></li>
-              <li><a href="/tipos/listar">Lista de Tipos</a></li>
+              <li class="active"><a href="/tipos/listar">Lista de Tipos</a></li>
               
               
             </ul>
@@ -58,7 +58,19 @@
 
     <div class="container-fluid">
       <div class="row-fluid">
-        <p>Entre em contato no nosso telefon (xx)xxxx xxxx.</p>
+        <form action="/tipos/update?id=<%= tipo.id %>" method="post" onSubmit="return validarTipos()">
+
+          <table class="formulario">
+            <tr>
+              <td class="rotulo">Tipo</td>
+
+              <td><input type='text' id="name" value='<%= tipo.tipo %>'name='tipo'/></td>
+            </tr>
+          </table>
+          <input type='submit' name='OK' value='enviar'/>
+
+        </form>
+
       </div><!--/row-->
 
       <hr>
@@ -72,19 +84,8 @@
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="/bootstrap/js/jquery.js"></script>
-    <script src="/bootstrap/js/bootstrap-transition.js"></script>
-    <script src="/bootstrap/js/bootstrap-alert.js"></script>
-    <script src="/bootstrap/js/bootstrap-modal.js"></script>
-    <script src="/bootstrap/js/bootstrap-dropdown.js"></script>
-    <script src="/bootstrap/js/bootstrap-scrollspy.js"></script>
-    <script src="/bootstrap/js/bootstrap-tab.js"></script>
-    <script src="/bootstrap/js/bootstrap-tooltip.js"></script>
-    <script src="/bootstrap/js/bootstrap-popover.js"></script>
-    <script src="/bootstrap/js/bootstrap-button.js"></script>
-    <script src="/bootstrap/js/bootstrap-collapse.js"></script>
-    <script src="/bootstrap/js/bootstrap-carousel.js"></script>
-    <script src="/bootstrap/js/bootstrap-typeahead.js"></script>
+    <script src="/javascripts/jquery-1.11.3.min.js"></script>
+    <script src="/javascripts/validacao.js"></script>
 
   </body>
 </html>

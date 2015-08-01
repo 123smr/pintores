@@ -33,6 +33,12 @@ var validarTipos=function(){
 	return true;
 }
 
+var excluirTipo=function(id){
+	if(confirm("Deseja realmente excluir")){
+		window.location.href='/tipos/excluir?id='+id;
+	}
+}
+
 var excluirOrcamento=function(id){
 	if(confirm("Deseja realmente excluir?")){
 		window.location.href='/orcamento/excluir?id='+id;

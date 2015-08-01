@@ -26,3 +26,6 @@ a {
 	background-color: #000;
 	color: #fff;
 }
+.registros .alterar, .registros .excluir{
+	width: 50px;
+}

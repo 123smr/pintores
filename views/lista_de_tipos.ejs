@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title><%= title %></title>
+    <title>Lista de Tipos</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -43,12 +43,11 @@
             <ul class="nav">
               <li><a href="/">Home</a></li>
               <li><a href="/quem-somos">Quem somos</a></li>
-              <li class="active"><a href="/contatos">Contatos</a></li>
+              <li><a href="/contatos">Contatos</a></li>
               <li><a href="/orcamento">Orçamento</a></li>
               <li><a href="/orcamento/listar">Lista de Orcamentos</a></li>
               <li><a href="/tipos">Tipos</a></li>
-              <li><a href="/tipos/listar">Lista de Tipos</a></li>
-              
+              <li class="active"><a href="/tipos/listar">Lista de Tipos</a></li>
               
             </ul>
           </div><!--/.nav-collapse -->
@@ -58,7 +57,27 @@
 
     <div class="container-fluid">
       <div class="row-fluid">
-        <p>Entre em contato no nosso telefon (xx)xxxx xxxx.</p>
+        <h1>Lista de tipo</h1>
+        <hr>
+        <table class="registros">
+          <tr class="header">
+            <td>Tipo</td>
+            <td class="alterar">Alterar</td>
+            <td class="excluir">Excluir</td>
+          </tr>
+          <%
+          for(i=0;i<registros.length;i++){
+          %>
+            <tr>
+              <td><%= registros[i].tipo %></td>
+              <td><a href="/tipos/alterar?id=<%= registros[i].id %>">alterar</a></td>
+              <td><a onclick="excluirTipo(<%= registros[i].id %>)" href="#">excluir</a></td>
+            </tr>
+          <%
+          }
+          %>
+ 
+        </table>
       </div><!--/row-->
 
       <hr>
@@ -72,19 +91,8 @@
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="/bootstrap/js/jquery.js"></script>
-    <script src="/bootstrap/js/bootstrap-transition.js"></script>
-    <script src="/bootstrap/js/bootstrap-alert.js"></script>
-    <script src="/bootstrap/js/bootstrap-modal.js"></script>
-    <script src="/bootstrap/js/bootstrap-dropdown.js"></script>
-    <script src="/bootstrap/js/bootstrap-scrollspy.js"></script>
-    <script src="/bootstrap/js/bootstrap-tab.js"></script>
-    <script src="/bootstrap/js/bootstrap-tooltip.js"></script>
-    <script src="/bootstrap/js/bootstrap-popover.js"></script>
-    <script src="/bootstrap/js/bootstrap-button.js"></script>
-    <script src="/bootstrap/js/bootstrap-collapse.js"></script>
-    <script src="/bootstrap/js/bootstrap-carousel.js"></script>
-    <script src="/bootstrap/js/bootstrap-typeahead.js"></script>
+    <script src="/javascripts/jquery-1.11.3.min.js"></script>
+    <script src="/javascripts/validacao.js"></script>
 
   </body>
 </html>
