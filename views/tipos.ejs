@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Lista de Orcamentos</title>
+    <title>Cadastrar Tipos</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -43,11 +43,11 @@
             <ul class="nav">
               <li><a href="/">Home</a></li>
               <li><a href="/quem-somos">Quem somos</a></li>
-              <li><a href="/contatos">Contatos</a></li>
+              <li><a href="/contatos">Contatos</a></li>    
               <li><a href="/orcamento">Orçamento</a></li>
-              <li class="active"><a href="/orcamento/listar">Lista de Orcamentos</a></li>
-              <li><a href="/tipos">Tipos</a></li>
-              
+              <li><a href="/orcamento/listar">Lista de Orcamentos</a></li>
+              <li class="active"><a href="/tipos">Tipos</a></li>
+
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -56,35 +56,18 @@
 
     <div class="container-fluid">
       <div class="row-fluid">
-        <h1>Lista de orçamento</h1>
-        <hr>
-        <table class="registros">
-          <tr class="header">
-            <td>Nome</td>
-            <td>Telefone</td>
-            <td>Endereço</td>
-            <td>Email</td>
-            <td>Orcamento</td>
-            <td>alterar</td>
-            <td>excluir</td>
-          </tr>
-          <%
-          for(i=0;i<registros.length;i++){
-          %>
+        <form action="/tipo/cadastrar" method="post" onSubmit="return validarTipos()">
+
+          <table class="formulario">
             <tr>
-              <td><%= registros[i].nome %></td>
-              <td><%= registros[i].telefone %></td>
-              <td><%= registros[i].endereco %></td>
-              <td><%= registros[i].email %></td>
-              <td><%= registros[i].orcamento %></td>
-              <td><a href="/orcamento/alterar?id=<%= registros[i].id %>">alterar</a></td>
-              <td><a onclick="excluirOrcamento(<%= registros[i].id %>)" href="#">excluir</a></td>
+              <td class="rotulo">Tipos</td>
+              <td><input type='text' id="tipo" name='tipo'/></td>
             </tr>
-          <%
-          }
-          %>
- 
-        </table>
+          </table>
+          <input type='submit' name='OK' value='enviar'/>
+
+        </form>
+
       </div><!--/row-->
 
       <hr>

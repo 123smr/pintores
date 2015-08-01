@@ -24,6 +24,15 @@ var validarFormulario=function(){
 	}			
 }
 
+var validarTipos=function(){
+	if($("#tipo").val()==""){
+		alert("Preencha o tipo");
+		$("#tipo").focus();
+		return false;
+	}
+	return true;
+}
+
 var excluirOrcamento=function(id){
 	if(confirm("Deseja realmente excluir?")){
 		window.location.href='/orcamento/excluir?id='+id;

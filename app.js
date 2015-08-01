@@ -10,6 +10,7 @@ var users = require('./routes/users');
 var about = require('./routes/about');
 var contact = require('./routes/contact');
 var orcamento = require('./routes/orcamento');
+var tipos = require('./routes/tipos');
 
 var app = express();
 
@@ -30,6 +31,7 @@ app.use('/usuarios', users);
 app.use('/quem-somos', about);
 app.use('/contatos', contact);
 app.use('/orcamento', orcamento);
+app.use('/tipos', tipos);
 
 
 // catch 404 and forward to error handler
