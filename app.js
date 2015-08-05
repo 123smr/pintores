@@ -11,7 +11,8 @@ var about = require('./routes/about');
 var contact = require('./routes/contact');
 var orcamento = require('./routes/orcamento');
 var tipos = require('./routes/tipos');
-
+var clientes = require('./routes/clientes');
+var http=require('./routes/http');
 var app = express();
 
 // view engine setup
@@ -32,7 +33,8 @@ app.use('/quem-somos', about);
 app.use('/contatos', contact);
 app.use('/orcamento', orcamento);
 app.use('/tipos', tipos);
-
+app.use('/clientes', clientes);
+app.use('/http', http);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

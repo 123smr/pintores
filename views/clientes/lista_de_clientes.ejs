@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("../comuns/head",{title:"Lista de clientes"}) %>
+  </head>
+
+  <body>
+
+    <%- include("../comuns/menu.ejs",{tipo:"clientes_listar"}) %>
+
+
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <h1>Lista de Clientes</h1>
+        <hr>
+        <p><a href="/clientes" class="btn btn-primary btn-large">Cadastrar cliente</a></p>
+        <table class="registros">
+          <tr class="header">
+            <td>Nome</td>
+            <td>Login</td>
+            <td>Senha</td>
+            <td>Alterar</td>
+            <td>Excluir</td>
+          </tr>
+          <%
+          for(i=0;i<registros.length;i++){
+          %>
+            <tr>
+              <td><%= registros[i].nome %></td>
+              <td><%= registros[i].login %></td>
+              <td><%= registros[i].senha %></td>
+              <td><a href="/clientes/alterar?id=<%= registros[i].id %>">alterar</a></td>
+              <td><a onclick="excluirClientes(<%= registros[i].id %>)" href="#">excluir</a></td>
+            </tr>
+          <%
+          }
+          %>
+ 
+        </table>
+      </div><!--/row-->
+
+      <hr>
+
+      <%- include("../comuns/footer") %>
+
+    </div><!--/.fluid-container-->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <%- include("../comuns/javascript") %>
+
+
+  </body>
+</html>
+

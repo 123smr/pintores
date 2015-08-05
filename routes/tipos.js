@@ -4,7 +4,36 @@ require("../models/tipo")
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('tipos');
+  res.render('tipos/salvar_tipo',{
+  	title:"incluir tipo",
+  	url:"/tipos/cadastrar"
+  });
+});
+
+router.get('/alterar', function(req,res,next){
+	Tipo.buscaPorId(req.param("id"),function(rows,err){
+		if(err){
+			res.send("erro ao buscar Id"+err.message,500);
+		}
+		else{
+			var tipo=rows[0];
+
+			//================= outra forma de fazer um hash e mandar para view =================
+			// mandarParaView={};
+			// mandarParaView.title="alterar tipo";
+			// mandarParaView.url="/tipos/update?id="+tipo.id;
+			// mandarParaView.tipoDoMysql=tipo;
+			// res.render('tipos/salvar_tipo',mandarParaView);
+
+			//================= mais uma forma de fazer um hash e mandar para view =================
+			res.render('tipos/salvar_tipo',{
+			  	title:"alterar tipo",
+			  	url:"/tipos/update?id="+tipo.id,
+			  	tipoDoMysql:tipo
+  			});
+		}
+
+	});
 });
 
 router.post('/cadastrar', function(req, res, next){
@@ -25,7 +54,7 @@ router.get('/listar', function(req,res,next){
 			res.send("erro ao buscar :"+err.message,500);
 		}
 		else{
-			res.render('lista_de_tipos',{registros:rows});
+			res.render('tipos/lista_de_tipos',{registros:rows});
 		}
 	});
 });
@@ -41,17 +70,7 @@ router.get('/excluir', function(req,res,next){
 	});
 });
 
-router.get('/alterar', function(req,res,next){
-	Tipo.buscaPorId(req.param("id"),function(rows,err){
-		if(err){
-			res.send("erro ao buscar Id"+err.message,500);
-		}
-		else{
-			res.render('alterar_tipo',{tipo:rows[0]});
-		}
 
-	});
-});
 router.post('/update', function(req,res,next){
 	tipo={
 		id:req.param("id"),

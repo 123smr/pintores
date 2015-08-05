@@ -4,7 +4,11 @@ require("../models/orcamento")
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('orcamento', { title: 'orcamento' });
+  res.render('orcamentos/salvar_orcamento', { 
+  	tituloDaPagina: 'Orçamento', 
+  	urlPost:"/orcamento/cadastrar", 
+  	orcamento:new Orcamento() 
+  });
 });
 
 router.post('/cadastrar', function(req, res, next) {
@@ -50,7 +54,7 @@ router.get('/listar', function(req,res,next){
 			res.send("erro ao buscar :"+err.message,500);
 		}
 		else{
-			res.render('listas_de_orcamentos',{registros:rows});
+			res.render('orcamentos/listas_de_orcamentos',{registros:rows});
 		}
 	})
 });
@@ -72,7 +76,11 @@ router.get('/alterar', function(req,res,next){
 			res.send("erro ao buscar :"+err.message,500);
 		}
 		else{
-			res.render('alterar',{orcamento:rows[0]});
+			res.render('orcamentos/salvar_orcamento', { 
+			  	tituloDaPagina: 'Orçamento', 
+			  	urlPost:"/orcamento/update?id="+rows[0].id, 
+			  	orcamento: rows[0];
+			});
 		}
 	});
 });

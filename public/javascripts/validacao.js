@@ -23,6 +23,26 @@ var validarFormulario=function(){
 		return false;
 	}			
 }
+var validarClientes=function(){
+	var mensagem="";
+	if($("#nome").val()==""){
+		mensagem+="Preencha o nome\n";
+	}
+	if($("#login").val()==""){
+		mensagem+="Preencha o login\n";
+	}
+	if($("#senha").val()==""){
+		mensagem+="Preencha a senha\n";
+	}
+	if(mensagem==""){
+		return true;
+	}
+	else{
+		alert(mensagem);
+		return false;
+	}
+}
+
 
 var validarTipos=function(){
 	if($("#tipo").val()==""){
@@ -32,6 +52,13 @@ var validarTipos=function(){
 	}
 	return true;
 }
+
+var excluirClientes=function(id){
+	if(confirm("Deseja realmente excluir")){
+		window.location.href='/clientes/excluir?id='+id;
+	}
+}
+
 
 var excluirTipo=function(id){
 	if(confirm("Deseja realmente excluir")){

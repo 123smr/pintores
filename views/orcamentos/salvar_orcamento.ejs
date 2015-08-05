@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <%- include("comuns/head.ejs",{title:"Alterar orçamento"}) %>
+    <%- include("../comuns/head.ejs",{title:tituloDaPagina}) %>
 
   </head>
 
   <body>
 
-    <%- include("comuns/menu.ejs",{tipo:"orcamento"}) %>
+    <%- include("../comuns/menu.ejs",{tipo:"orcamento"}) %>
 
     <div class="container-fluid">
       <div class="row-fluid">
-        <form action="/orcamento/update?id=<%= orcamento.id %>" method="post" onSubmit="return validarFormulario()">
+        <form action="<%= urlPost %>" method="post" onSubmit="return validarFormulario()">
 
           <table class="formulario">
             <tr>
@@ -43,14 +43,14 @@
 
       <hr>
 
-      <%- include("comuns/footer") %>
+      <%- include("../comuns/footer") %>
 
     </div><!--/.fluid-container-->
 
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <%- include("comuns/javascript") %>
+    <%- include("../comuns/javascript") %>
 
 
   </body>

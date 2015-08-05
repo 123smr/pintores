@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("../comuns/head",{title:"Cadastrar Usuários"}) %>
+  </head>
+
+  <body>
+
+    <%- include("../comuns/menu",{tipo:"clientes"}) %>
+
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <form action="/clientes/cadastrar" method="post" onSubmit="return validarClientes()">
+
+          <table class="formulario">
+            <tr>
+              <td class="rotulo">Nome</td>
+              <td><input type='text' id="nome" name='nome'/></td>
+            </tr>
+            <tr>
+              <td class="rotulo">Login</td>
+              <td><input type='text' id="login" name='login'/></td>
+            </tr>
+            <tr>
+              <td class="rotulo">Senha</td>
+              <td><input type='password' id="senha" name='senha'/></td>
+            </tr>
+          </table>
+          <input type='submit' name='OK' value='enviar'/>
+
+        </form>
+
+      </div><!--/row-->
+
+      <hr>
+
+      <%- include("../comuns/footer") %>
+
+    </div><!--/.fluid-container-->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <%- include("../comuns/javascript") %>
+
+
+  </body>
+</html>
+

@@ -15,10 +15,10 @@
           <li <% if(tipo=="home"){ %>class="active" <% } %>><a href="/">Home</a></li>
           <li <% if(tipo=="about"){ %>class="active" <% } %>><a href="/quem-somos">Quem somos</a></li>
           <li <% if(tipo=="contatos"){ %>class="active" <% } %>><a href="/contatos">Contatos</a></li>
-          <li <% if(tipo=="orcamento"){ %>class="active" <% } %>><a href="/orcamento">Orçamento</a></li>
-          <li <% if(tipo=="orcamento_listar"){ %>class="active" <% } %>><a href="/orcamento/listar">Lista de Orcamentos</a></li>
-          <li <% if(tipo=="tipos"){ %>class="active" <% } %>><a href="/tipos">Tipos</a></li>
-          <li <% if(tipo=="tipos_listar"){ %>class="active" <% } %>><a href="/tipos/listar">Lista de Tipos</a></li>
+          <li <% if(tipo=="orcamento" || tipo=="orcamento_listar"){ %>class="active" <% } %>><a href="/orcamento/listar">Orçamento</a></li>
+          <li <% if(tipo=="tipos" || tipo=="tipos_listar"){ %>class="active" <% } %>><a href="/tipos/listar">Tipos</a></li>
+          <li <% if(tipo=="clientes" || tipo=="clientes_listar"){ %>class="active" <% } %>><a href="/clientes/listar">Clientes</a></li>
+
         </ul>
       </div><!--/.nav-collapse -->
     </div>

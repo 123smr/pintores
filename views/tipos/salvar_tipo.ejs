@@ -1,22 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <%- include("comuns/head.ejs",{title:"Alterar tipo"}) %>
+    <%- include("../comuns/head.ejs",{title:title}) %>
   </head>
 
   <body>
     
-    <%- include("comuns/menu.ejs",{tipo:"tipos"}) %>
+    <%- include("../comuns/menu.ejs",{tipo:"tipos"}) %>
 
     <div class="container-fluid">
       <div class="row-fluid">
-        <form action="/tipos/update?id=<%= tipo.id %>" method="post" onSubmit="return validarTipos()">
+        <form action="<%= url %>" method="post" onSubmit="return validarTipos()">
 
           <table class="formulario">
             <tr>
               <td class="rotulo">Tipo</td>
 
-              <td><input type='text' id="name" value='<%= tipo.tipo %>'name='tipo'/></td>
+              <td>
+                <% if(tipoDoMysql){%>
+                  <input type='text' id="name" value='<%= tipoDoMysql.tipo %>'name='tipo'/> 
+                <% } else{%>
+                  <input type='text' id="name" name='tipo'/> 
+                <% } %>
+              </td>
             </tr>
           </table>
           <input type='submit' name='OK' value='enviar'/>
@@ -27,14 +33,14 @@
 
       <hr>
 
-      <%- include("comuns/footer") %>
+      <%- include("../comuns/footer") %>
 
     </div><!--/.fluid-container-->
 
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <%- include("comuns/javascript") %>
+    <%- include("../comuns/javascript") %>
 
 
   </body>
