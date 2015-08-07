@@ -79,7 +79,7 @@ router.get('/alterar', function(req,res,next){
 			res.render('orcamentos/salvar_orcamento', { 
 			  	tituloDaPagina: 'Orçamento', 
 			  	urlPost:"/orcamento/update?id="+rows[0].id, 
-			  	orcamento: rows[0];
+			  	orcamento: rows[0]
 			});
 		}
 	});
